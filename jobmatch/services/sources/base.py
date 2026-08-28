@@ -49,7 +49,7 @@ def register(name: str) -> Callable[[Fetcher], Fetcher]:
 def source_names() -> list[str]:
     # ensure adapters are imported/registered
     from . import (remotive, arbeitnow, jobicy, remoteok, adzuna, jooble,  # noqa: F401
-                   jsearch)
+                   jsearch, linkedin_jobs)
     return list(SOURCES.keys())
 
 

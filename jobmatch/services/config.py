@@ -117,8 +117,10 @@ def enabled_sources() -> list[str]:
         names = names + ["Adzuna"]
     if jooble_key() and "Jooble" not in names:
         names = names + ["Jooble"]     # covers Pakistan + most countries
-    if rapidapi_key() and "JSearch" not in names:
-        names = names + ["JSearch"]    # Google-for-Jobs (LinkedIn/Indeed/Glassdoor)
+    if rapidapi_key():                 # both use the RapidAPI key; whichever the
+        for s in ("JSearch", "LinkedIn"):   # user is subscribed to will respond
+            if s not in names:
+                names = names + [s]
     return names
 
 

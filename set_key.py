@@ -18,7 +18,7 @@ from jobmatch.services import config
 # arg name -> (settings field, source-registry name or None for AI keys)
 FIELDS = {
     "jooble": ("jooble_key", "Jooble"),
-    "rapidapi": ("rapidapi_key", "JSearch"),
+    "rapidapi": ("rapidapi_key", "LinkedIn"),   # LinkedIn Job Search API
     "groq": ("groq_key", None),
     "gemini": ("gemini_key", None),
 }
