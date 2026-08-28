@@ -22,16 +22,45 @@ from .base import (RawJob, UA, html_to_text, map_type, register,
 
 HOST = "jsearch.p.rapidapi.com"
 
+# location country -> ISO 3166-1 alpha-2 (JSearch's `country` param)
+_ISO = {
+    "pakistan": "pk", "india": "in", "bangladesh": "bd", "sri lanka": "lk",
+    "united states": "us", "usa": "us", "u.s.": "us", "canada": "ca",
+    "united kingdom": "gb", "uk": "gb", "england": "gb", "ireland": "ie",
+    "germany": "de", "france": "fr", "spain": "es", "italy": "it",
+    "netherlands": "nl", "poland": "pl", "australia": "au", "new zealand": "nz",
+    "singapore": "sg", "malaysia": "my", "indonesia": "id", "philippines": "ph",
+    "united arab emirates": "ae", "uae": "ae", "saudi arabia": "sa", "qatar": "qa",
+    "nigeria": "ng", "kenya": "ke", "south africa": "za", "egypt": "eg",
+    "brazil": "br", "mexico": "mx", "turkey": "tr", "japan": "jp", "china": "cn",
+}
+
+
+def _iso_and_city(location: str) -> tuple[str | None, str]:
+    low = (location or "").lower()
+    iso = None
+    for name, code in _ISO.items():
+        if name in low:
+            iso = code
+            break
+    city = (location or "").split(",")[0].split("·")[0].strip()
+    # don't treat a country name as a "city"
+    if city.lower() in _ISO:
+        city = ""
+    return iso, city
+
 
 @register("JSearch")
 def fetch(keywords: list[str], location: str, limit: int) -> list[RawJob]:
     key = config.rapidapi_key()
     if not key:
         raise RuntimeError("RapidAPI key not configured")
-    where = (location or "").split("·")[0].strip()
+    iso, city = _iso_and_city(location)
     terms = " ".join(keywords[:3]) or "developer"
-    query = f"{terms} in {where}" if where else terms
+    query = f"{terms} {city}".strip() if city else terms
     params = {"query": query, "page": "1", "num_pages": "1"}
+    if iso:                       # proper country filter (pk, us, gb …)
+        params["country"] = iso
     url = f"https://{HOST}/search?{urllib.parse.urlencode(params)}"
     req = urllib.request.Request(url, headers={
         "X-RapidAPI-Key": key, "X-RapidAPI-Host": HOST, "User-Agent": UA})
