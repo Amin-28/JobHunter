@@ -352,6 +352,17 @@ async function openSettings() {
 async function api2(path){ const r=await fetch(path); return r.json(); }
 $('#settings-btn').addEventListener('click', openSettings);
 $('#settings-cancel').addEventListener('click', ()=>$('#modal-bg').style.display='none');
+$('#settings-test').addEventListener('click', async () => {
+  const box = $('#test-results'); box.style.display='block';
+  box.innerHTML = '<span class="spin"></span> Pinging every source (uses your saved keys)…';
+  const loc = S.query.location || (S.profile?.location||'').split(' · ')[0] || 'Karachi, Pakistan';
+  const res = await api('/api/test-sources', { location: loc });
+  box.innerHTML = (res.results||[]).map(r => {
+    if (r.status==='ok') return `<div style="color:var(--ok)">✓ <b>${r.name}</b> — ${r.count} jobs <span style="color:var(--text-4)">(${r.ms}ms)</span></div>`;
+    if (r.status==='no_key') return `<div style="color:var(--text-4)">○ ${r.name} — no key configured</div>`;
+    return `<div style="color:var(--danger)">✗ <b>${r.name}</b> — ${r.error}</div>`;
+  }).join('') + `<div style="color:var(--text-4);margin-top:6px;font-size:11px">Location tested: ${loc}</div>`;
+});
 $('#modal-bg').addEventListener('click', e=>{ if(e.target.id==='modal-bg') $('#modal-bg').style.display='none'; });
 $('#settings-save').addEventListener('click', async () => {
   const body = {};

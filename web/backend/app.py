@@ -107,6 +107,31 @@ def parse(file: UploadFile = File(...)) -> JSONResponse:
     })
 
 
+@app.post("/api/test-sources")
+def test_sources(payload: dict = Body(default={})) -> JSONResponse:
+    """Ping every registered source and report jobs / no-key / error, per source."""
+    import time
+    from jobmatch.services.sources.base import SOURCES, source_names
+    source_names()   # ensure adapters registered
+    loc = (payload or {}).get("location") or "Karachi, Pakistan"
+    kws = (payload or {}).get("keywords") or ["data analyst", "developer"]
+    enabled = set(config.enabled_sources())
+    results = []
+    for name, fn in SOURCES.items():
+        t = time.time()
+        try:
+            jobs = fn(kws, loc, 5)
+            results.append({"name": name, "status": "ok", "count": len(jobs),
+                            "ms": int((time.time() - t) * 1000),
+                            "enabled": name in enabled})
+        except Exception as e:
+            msg = f"{type(e).__name__}: {str(e)[:140]}"
+            no_key = "not configured" in str(e).lower() or "key" in str(e).lower()
+            results.append({"name": name, "status": "no_key" if no_key else "error",
+                            "error": None if no_key else msg, "enabled": name in enabled})
+    return JSONResponse({"results": results, "ai": ai.active_provider()})
+
+
 @app.post("/api/search")
 def search(payload: dict = Body(...)) -> JSONResponse:
     profile = _profile_from_dict(payload.get("profile") or {})
