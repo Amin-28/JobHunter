@@ -38,6 +38,9 @@
   <!-- main -->
   <main id="main">
     <div id="header-bar">
+      <button class="icon-btn" id="settings-btn" title="Settings — API keys">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1"/></svg>
+      </button>
       <button class="icon-btn" id="theme-btn" title="Toggle theme">
         <svg viewBox="0 0 24 24" id="theme-icon"></svg>
       </button>
@@ -102,6 +105,20 @@
     </div>
     <div id="statusbar">Ready · No resume loaded</div>
   </main>
+
+  <!-- SETTINGS MODAL -->
+  <div id="modal-bg" style="display:none">
+    <div id="settings-modal">
+      <div style="display:flex;align-items:center;gap:9px"><span style="font-size:18px">🔑</span><b style="font-size:16px">API keys</b></div>
+      <p style="color:var(--text-3);font-size:12px;margin:6px 0 16px">Paste any keys you have — everything works without them too. Free options are marked. Keys stay on this machine.</p>
+      <div id="settings-fields"></div>
+      <div id="settings-note" style="font-size:11.5px;color:var(--warn-ink);background:var(--warn-bg);border:1px solid var(--warn-border);border-radius:6px;padding:8px 10px;margin:6px 0;display:none"></div>
+      <div style="display:flex;justify-content:flex-end;gap:8px;margin-top:14px">
+        <button class="btn sec" id="settings-cancel">Cancel</button>
+        <button class="btn" id="settings-save">Save</button>
+      </div>
+    </div>
+  </div>
 </div>
 <script src="app.js"></script>
 </body>

@@ -331,6 +331,38 @@ function renderSaved() {
   $$('.rm').forEach(a=>a.onclick=()=>{ toggleSave(S.saved.find(s=>s.id===a.dataset.id)); renderSaved(); });
 }
 
+/* ---------- settings modal ---------- */
+const SET_SECTIONS = [
+  ['AI · free', [['groq_key','Groq key','console.groq.com — free, fast'],['gemini_key','Google Gemini key','aistudio.google.com — free']]],
+  ['Jobs', [['jooble_key','Jooble key','jooble.org/api/about — Pakistan jobs, free'],['rapidapi_key','RapidAPI key (JSearch)','LinkedIn/Indeed via Google — free tier']]],
+  ['Advanced · optional', [['anthropic_api_key','Anthropic (Claude) key','paid'],['adzuna_app_id','Adzuna App ID','free'],['adzuna_app_key','Adzuna App Key','']]],
+];
+async function openSettings() {
+  const st = await api2('/api/settings');
+  const note = $('#settings-note');
+  if (!st.local) { note.style.display='block'; note.textContent='This app is hosted, so keys are read-only here — set them as environment variables on the server. (Only the local machine can edit keys.)'; }
+  else note.style.display='none';
+  $('#settings-fields').innerHTML = SET_SECTIONS.map(([sec,rows]) => `<div class="set-sec">${sec}</div>` +
+    rows.map(([k,label,hint])=>`<div class="set-field"><label>${label} ${hint?`<span>· ${hint}</span>`:''}</label>
+      <input type="password" data-k="${k}" placeholder="${st.configured?.[k]?'•••••• saved — leave blank to keep':'paste key…'}" ${st.local?'':'disabled'}></div>`).join('')
+  ).join('');
+  $('#settings-save').style.display = st.local ? '' : 'none';
+  $('#modal-bg').style.display = 'grid';
+}
+async function api2(path){ const r=await fetch(path); return r.json(); }
+$('#settings-btn').addEventListener('click', openSettings);
+$('#settings-cancel').addEventListener('click', ()=>$('#modal-bg').style.display='none');
+$('#modal-bg').addEventListener('click', e=>{ if(e.target.id==='modal-bg') $('#modal-bg').style.display='none'; });
+$('#settings-save').addEventListener('click', async () => {
+  const body = {};
+  $$('#settings-fields input').forEach(i => { const v=i.value.trim(); if(v) body[i.dataset.k]=v; });
+  const res = await api('/api/settings', body);
+  $('#modal-bg').style.display='none';
+  if (res.ok) { status(`Settings saved · ${(res.sources||[]).length} sources${res.ai!=='local'?' · ✨ '+res.ai:''}`);
+    if (S.profile) { S.rawJobs=[]; if($('#search-view').classList.contains('active')) runSearch(); } }
+  else status(res.error || 'Could not save settings');
+});
+
 /* ---------- boot ---------- */
 $('#saved-badge').textContent = S.saved.length;
 if (S.saved.length) $$('.nav-row[data-nav=saved]').forEach(r=>r.classList.remove('disabled'));

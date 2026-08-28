@@ -186,3 +186,12 @@ input[type=range] { flex:1; accent-color:var(--accent); }
 @keyframes sp { to { transform:rotate(360deg); } }
 .skel { background:var(--bg-fill); border-radius:5px; animation:pulse 1.2s ease infinite; }
 @keyframes pulse { 50% { opacity:.5; } }
+
+/* ---- settings modal ---- */
+#modal-bg { position:fixed; inset:0; background:rgba(10,14,18,.45); display:grid; place-items:center; z-index:50; animation:fade .15s ease; }
+#settings-modal { background:var(--bg-app); border:1px solid var(--border); border-radius:12px; padding:24px 26px;
+  width:460px; max-width:92vw; max-height:88vh; overflow-y:auto; box-shadow:0 20px 60px rgba(0,0,0,.35); }
+.set-sec { font-size:10px; font-weight:600; letter-spacing:1px; color:var(--text-5); text-transform:uppercase; margin:14px 0 8px; }
+.set-field label { display:block; font-size:12.5px; font-weight:500; color:var(--text-2); margin-bottom:4px; }
+.set-field label span { color:var(--text-4); font-weight:400; font-size:11px; }
+.set-field input { font-family:'IBM Plex Mono',monospace; font-size:12px; margin-bottom:10px; }

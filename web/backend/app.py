@@ -21,7 +21,7 @@ _ROOT = Path(__file__).resolve().parents[2]
 if str(_ROOT) not in sys.path:
     sys.path.insert(0, str(_ROOT))
 
-from fastapi import Body, FastAPI, File, UploadFile          # noqa: E402
+from fastapi import Body, FastAPI, File, Request, UploadFile  # noqa: E402
 from fastapi.responses import JSONResponse                    # noqa: E402
 from fastapi.staticfiles import StaticFiles                   # noqa: E402
 
@@ -39,6 +39,43 @@ _FRONTEND = _ROOT / "web" / "frontend"
 @app.get("/api/status")
 def status() -> dict:
     return {"sources": config.enabled_sources(), "ai": ai.active_provider()}
+
+
+# fields the in-app Settings panel may set (matches the desktop dialog)
+_SETTING_KEYS = ["groq_key", "gemini_key", "jooble_key", "rapidapi_key",
+                 "anthropic_api_key", "adzuna_app_id", "adzuna_app_key"]
+
+
+def _is_local(request: Request) -> bool:
+    host = (request.client.host if request.client else "") or ""
+    return host in ("127.0.0.1", "::1", "localhost", "testclient")
+
+
+@app.get("/api/settings")
+def get_settings(request: Request) -> dict:
+    # never return key VALUES — only whether each is set, plus live status
+    return {
+        "local": _is_local(request),
+        "configured": {k: bool(config.get(k, "")) for k in _SETTING_KEYS},
+        "sources": config.enabled_sources(),
+        "ai": ai.active_provider(),
+    }
+
+
+@app.post("/api/settings")
+def save_settings(request: Request, payload: dict = Body(...)) -> JSONResponse:
+    if not _is_local(request):
+        return JSONResponse(
+            {"error": "Settings can only be changed from the local machine. "
+                      "On a hosted server, set keys as environment variables."},
+            status_code=403)
+    for k in _SETTING_KEYS:
+        if k in payload and isinstance(payload[k], str):
+            config.set(k, payload[k].strip())
+    return JSONResponse({
+        "ok": True, "sources": config.enabled_sources(), "ai": ai.active_provider(),
+        "configured": {k: bool(config.get(k, "")) for k in _SETTING_KEYS},
+    })
 
 
 @app.post("/api/parse")
