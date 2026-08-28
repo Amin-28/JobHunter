@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics><meta name="design_doc_mode" content="canvas"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet"><style>body{margin:0;background:#eceae6;font-family:'IBM Plex Sans',system-ui,sans-serif}a{color:#0f6e6a}a:hover{color:#0a5350}.dv-turn{padding:40px 44px 32px;border-bottom:1px solid rgba(0,0,0,.08)}.dv-thd{display:flex;align-items:baseline;gap:10px;margin:0 0 20px}.dv-tid{font:600 10px ui-monospace,Menlo,monospace;padding:3px 7px;background:#1a1a1a;color:#fff;border-radius:4px;text-decoration:none}.dv-tname{font:600 13px/1.2 'IBM Plex Sans',system-ui,sans-serif;color:#1a1a1a}.dv-opts{display:flex;flex-wrap:wrap;gap:34px;align-items:flex-start}.dv-opt{flex:none;display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px}.dv-oid{font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none}.dv-olabel{display:flex;align-items:baseline;gap:8px;font:400 11.5px/1.3 'IBM Plex Sans',system-ui,sans-serif;color:rgba(0,0,0,.55)}.dv-opt:target .dv-oid{background:#0f6e6a;color:#fff}.dv-next{margin:24px 0 0;font:12px/1.6 'IBM Plex Sans',system-ui,sans-serif;color:rgba(0,0,0,.5)}.win{width:1240px;height:780px;background:#fff;border:1px solid #cfd4da;border-radius:7px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 8px 24px rgba(20,28,38,.13);color:#1b2027}</style></helmet>
+
+<section class="dv-turn" id="t1">
+<div class="dv-thd"><a class="dv-tid" href="#t1">1</a><span class="dv-tname">JobMatch AI — desktop app (PyQt6), 1240×780 window</span></div>
+<div class="dv-opts">
+
+<div class="dv-opt" id="1a"><div class="dv-olabel"><a class="dv-oid" href="#1a">1a</a>Resume upload — empty state</div>
+<div class="win">
+  <div style="height:36px;flex:none;background:#e9ebee;border-bottom:1px solid #d3d8de;display:flex;align-items:center;padding:0 12px;gap:10px">
+    <div style="width:14px;height:14px;border-radius:3px;background:#0f6e6a"></div>
+    <div style="font-size:11.5px;font-weight:600;letter-spacing:.02em">JobMatch AI</div>
+    <div style="flex:1"></div>
+    <div style="display:flex;gap:14px;color:#7a828c;font-size:11px">
+      <span>—</span><span>▢</span><span>✕</span>
+    </div>
+  </div>
+  <div style="flex:1;display:flex;min-height:0">
+    <div style="width:198px;flex:none;background:#f5f6f8;border-right:1px solid #e2e6ea;padding:14px 10px;display:flex;flex-direction:column;gap:3px">
+      <div style="font-size:9.5px;font-weight:600;letter-spacing:.1em;color:#98a0aa;padding:4px 10px 8px">WORKFLOW</div>
+      <div style="padding:8px 10px;border-radius:5px;font-size:12.5px;font-weight:600;background:#e2efee;color:#0f6e6a;display:flex;gap:9px;align-items:center"><span style="width:16px;height:16px;border-radius:50%;background:#0f6e6a;color:#fff;font-size:9px;display:flex;align-items:center;justify-content:center;font-weight:700">1</span>Resume</div>
+      <div style="padding:8px 10px;border-radius:5px;font-size:12.5px;color:#aab1ba;display:flex;gap:9px;align-items:center"><span style="width:16px;height:16px;border-radius:50%;border:1px solid #cfd5db;font-size:9px;display:flex;align-items:center;justify-content:center">2</span>Profile</div>
+      <div style="padding:8px 10px;border-radius:5px;font-size:12.5px;color:#aab1ba;display:flex;gap:9px;align-items:center"><span style="width:16px;height:16px;border-radius:50%;border:1px solid #cfd5db;font-size:9px;display:flex;align-items:center;justify-content:center">3</span>Search</div>
+      <div style="padding:8px 10px;border-radius:5px;font-size:12.5px;color:#aab1ba;display:flex;gap:9px;align-items:center"><span style="width:16px;height:16px;border-radius:50%;border:1px solid #cfd5db;font-size:9px;display:flex;align-items:center;justify-content:center">4</span>Saved</div>
+      <div style="flex:1"></div>
+      <div style="padding:9px 10px;border-top:1px solid #e2e6ea;font-size:11px;color:#8b939d;display:flex;gap:8px;align-items:center">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8b939d" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg>Runs offline
+      </div>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#fbfbfc;padding:40px">
+      <svg width="72" height="72" viewBox="0 0 72 72" fill="none">
+        <rect x="16" y="8" width="34" height="44" rx="4" fill="#fff" stroke="#c3cad2" stroke-width="1.6"/>
+        <path d="M23 20h20M23 27h20M23 34h13" stroke="#d4dae1" stroke-width="2.4" stroke-linecap="round"/>
+        <circle cx="48" cy="46" r="16" fill="#e2efee" stroke="#0f6e6a" stroke-width="1.6"/>
+        <path d="M42 46l4.5 4.5L55 42" stroke="#0f6e6a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div style="font-size:26px;font-weight:600;letter-spacing:-.01em;margin:22px 0 8px">Find jobs that fit your resume</div>
+      <div style="font-size:13.5px;color:#6b7481;max-width:430px;text-align:center;line-height:1.55;text-wrap:pretty">Drop in your resume and JobMatch reads your skills, titles and experience to score every job it finds.</div>
+      <div style="margin-top:30px;width:600px;height:216px;border:2px dashed #c3cad2;border-radius:8px;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#9aa3ad" stroke-width="1.7" stroke-linecap="round"><path d="M12 16V4"/><path d="M7 9l5-5 5 5"/><path d="M4 16v3a2 2 0 002 2h12a2 2 0 002-2v-3"/></svg>
+        <div style="font-size:14px;color:#4c545e">Drag &amp; drop your resume here</div>
+        <div style="display:flex;align-items:center;gap:12px;color:#a6adb6;font-size:11.5px"><span style="width:60px;height:1px;background:#e2e6ea"></span>or<span style="width:60px;height:1px;background:#e2e6ea"></span></div>
+        <button style="border:1px solid #0f6e6a;background:#0f6e6a;color:#fff;font-family:inherit;font-size:13px;font-weight:600;padding:9px 20px;border-radius:5px;cursor:pointer" style-hover="background:#0a5350;border-color:#0a5350">Browse Files…</button>
+        <div style="font-size:11px;color:#98a0aa">PDF or DOCX · up to 10 MB</div>
+      </div>
+      <div style="margin-top:26px;font-size:11.5px;color:#8b939d">Last used: <span style="font-family:'IBM Plex Mono',monospace">a_okafor_resume_2026.pdf</span> · <a href="#1a" style="text-decoration:none;font-weight:500">reuse</a></div>
+    </div>
+  </div>
+  <div style="height:26px;flex:none;border-top:1px solid #e2e6ea;background:#f5f6f8;display:flex;align-items:center;padding:0 12px;font-size:10.5px;color:#8b939d;gap:16px"><span>Ready</span><span>·</span><span>No resume loaded</span></div>
+</div></div>
+
+<div class="dv-opt" id="1b"><div class="dv-olabel"><a class="dv-oid" href="#1b">1b</a>Reading your resume — processing state</div>
+<div class="win">
+  <div style="height:36px;flex:none;background:#e9ebee;border-bottom:1px solid #d3d8de;display:flex;align-items:center;padding:0 12px;gap:10px">
+    <div style="width:14px;height:14px;border-radius:3px;background:#0f6e6a"></div>
+    <div style="font-size:11.5px;font-weight:600;letter-spacing:.02em">JobMatch AI</div>
+    <div style="flex:1"></div><div style="display:flex;gap:14px;color:#7a828c;font-size:11px"><span>—</span><span>▢</span><span>✕</span></div>
+  </div>
+  <div style="flex:1;display:flex;min-height:0">
+    <div style="width:198px;flex:none;background:#f5f6f8;border-right:1px solid #e2e6ea;padding:14px 10px;display:flex;flex-direction:column;gap:3px">
+      <div style="font-size:9.5px;font-weight:600;letter-spacing:.1em;color:#98a0aa;padding:4px 10px 8px">WORKFLOW</div>
+      <div style="padding:8px 10px;border-radius:5px;font-size:12.5px;font-weight:600;background:#e2efee;color:#0f6e6a;display:flex;gap:9px;align-items:center"><span style="width:16px;height:16px;border-radius:50%;background:#0f6e6a;color:#fff;font-size:9px;display:flex;align-items:center;justify-content:center;font-weight:700">1</span>Resume</div>
+      <div style="padding:8px 10px;border-radius:5px;font-size:12.5px;color:#aab1ba;display:flex;gap:9px;align-items:center"><span style="width:16px;height:16px;border-radius:50%;border:1px solid #cfd5db;font-size:9px;display:flex;align-items:center;justify-content:center">2</span>Profile</div>
+      <div style="padding:8px 10px;border-radius:5px;font-size:12.5px;color:#aab1ba;display:flex;gap:9px;align-items:center"><span style="width:16px;height:16px;border-radius:50%;border:1px solid #cfd5db;font-size:9px;display:flex;align-items:center;justify-content:center">3</span>Search</div>
+      <div style="padding:8px 10px;border-radius:5px;font-size:12.5px;color:#aab1ba;display:flex;gap:9px;align-items:center"><span style="width:16px;height:16px;border-radius:50%;border:1px solid #cfd5db;font-size:9px;display:flex;align-items:center;justify-content:center">4</span>Saved</div>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#fbfbfc;padding:40px">
+      <div style="font-size:22px;font-weight:600;letter-spacing:-.01em">Reading your resume…</div>
+      <div style="font-size:13px;color:#6b7481;margin-top:7px">This takes a few seconds. Everything happens on your machine.</div>
+      <div style="margin-top:28px;width:600px;background:#fff;border:1px solid #e2e6ea;border-radius:8px;padding:22px 24px">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="width:34px;height:40px;border-radius:4px;background:#fdf1ef;border:1px solid #f3d3cd;display:flex;align-items:center;justify-content:center;font:600 9px 'IBM Plex Mono',monospace;color:#c0503c">PDF</div>
+          <div style="flex:1;min-width:0">
+            <div style="font-size:13px;font-weight:600">a_okafor_resume_2026.pdf</div>
+            <div style="font-size:11.5px;color:#8b939d;margin-top:3px">248 KB · 2 pages</div>
+          </div>
+          <div style="font:600 12px 'IBM Plex Mono',monospace;color:#0f6e6a">64%</div>
+        </div>
+        <div style="height:5px;border-radius:3px;background:#eceef1;margin-top:16px;overflow:hidden"><div style="width:64%;height:100%;background:#0f6e6a"></div></div>
+        <div style="margin-top:20px;display:flex;flex-direction:column;gap:11px">
+          <div style="display:flex;align-items:center;gap:10px;font-size:12.5px;color:#4c545e"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0f6e6a" stroke-width="2.4" stroke-linecap="round"><path d="M4 12.5l5 5L20 6.5"/></svg>Extracted text from 2 pages</div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:12.5px;color:#4c545e"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0f6e6a" stroke-width="2.4" stroke-linecap="round"><path d="M4 12.5l5 5L20 6.5"/></svg>Found sections: Experience, Skills, Education</div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:12.5px;color:#1b2027;font-weight:600"><span style="width:15px;height:15px;border-radius:50%;border:2px solid #cfe0df;border-top-color:#0f6e6a;display:block"></span>Identifying skills and seniority…</div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:12.5px;color:#aab1ba"><span style="width:15px;height:15px;border-radius:50%;border:1.5px dashed #cfd5db;display:block"></span>Building search keywords</div>
+        </div>
+        <div style="margin-top:22px;padding-top:16px;border-top:1px solid #eceef1;display:flex;justify-content:flex-end">
+          <button style="border:1px solid #d3d8de;background:#fff;color:#4c545e;font-family:inherit;font-size:12.5px;padding:7px 15px;border-radius:5px;cursor:pointer" style-hover="background:#f5f6f8">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="height:26px;flex:none;border-top:1px solid #e2e6ea;background:#f5f6f8;display:flex;align-items:center;padding:0 12px;font-size:10.5px;color:#8b939d;gap:16px"><span>Parsing…</span><span>·</span><span>a_okafor_resume_2026.pdf</span></div>
+</div></div>
+
+<div class="dv-opt" id="1c"><div class="dv-olabel"><a class="dv-oid" href="#1c">1c</a>Profile summary — editable, one field in edit mode</div>
+<div class="win">
+  <div style="height:36px;flex:none;background:#e9ebee;border-bottom:1px solid #d3d8de;display:flex;align-items:center;padding:0 12px;gap:10px">
+    <div style="width:14px;height:14px;border-radius:3px;background:#0f6e6a"></div>
+    <div style="font-size:11.5px;font-weight:600;letter-spacing:.02em">JobMatch AI</div>
+    <div style="flex:1"></div><div style="display:flex;gap:14px;color:#7a828c;font-size:11px"><span>—</span><span>▢</span><span>✕</span></div>
+  </div>
+  <div style="flex:1;display:flex;min-height:0">
+    <div style="width:198px;flex:none;background:#f5f6f8;border-right:1px solid #e2e6ea;padding:14px 10px;display:flex;flex-direction:column;gap:3px">
+      <div style="font-size:9.5px;font-weight:600;letter-spacing:.1em;color:#98a0aa;padding:4px 10px 8px">WORKFLOW</div>
+      <div style="padding:8px 10px;border-radius:5px;font-size:12.5px;color:#4c545e;display:flex;gap:9px;align-items:center"><span style="width:16px;height:16px;border-radius:50%;background:#cfe0df;color:#0f6e6a;font-size:9px;display:flex;align-items:center;justify-content:center;font-weight:700">✓</span>Resume</div>
+      <div style="padding:8px 10px;border-radius:5px;font-size:12.5px;font-weight:600;background:#e2efee;color:#0f6e6a;display:flex;gap:9px;align-items:center"><span style="width:16px;height:16px;border-radius:50%;background:#0f6e6a;color:#fff;font-size:9px;display:flex;align-items:center;justify-content:center;font-weight:700">2</span>Profile</div>
+      <div style="padding:8px 10px;border-radius:5px;font-size:12.5px;color:#aab1ba;display:flex;gap:9px;align-items:center"><span style="width:16px;height:16px;border-radius:50%;border:1px solid #cfd5db;font-size:9px;display:flex;align-items:center;justify-content:center">3</span>Search</div>
+      <div style="padding:8px 10px;border-radius:5px;font-size:12.5px;color:#aab1ba;display:flex;gap:9px;align-items:center"><span style="width:16px;height:16px;border-radius:50%;border:1px solid #cfd5db;font-size:9px;display:flex;align-items:center;justify-content:center">4</span>Saved</div>
+      <div style="flex:1"></div>
+      <div style="padding:10px;border:1px solid #e2e6ea;background:#fff;border-radius:6px;font-size:11px;color:#8b939d;line-height:1.5">Parsed from<br><span style="color:#4c545e;font-family:'IBM Plex Mono',monospace;font-size:10.5px">a_okafor_resume_2026.pdf</span><br><a href="#1a" style="text-decoration:none">Replace resume</a></div>
+    </div>
+    <div style="flex:1;background:#fbfbfc;padding:30px 40px;overflow:hidden">
+      <div style="display:flex;align-items:flex-end;justify-content:space-between">
+        <div>
+          <div style="font-size:21px;font-weight:600;letter-spacing:-.01em">Here's what we read</div>
+          <div style="font-size:12.5px;color:#6b7481;margin-top:5px">Fix anything that looks off — matching quality depends on it.</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:7px;background:#fff;border:1px solid #e2e6ea;border-radius:5px;padding:6px 11px;font-size:11.5px;color:#4c545e">
+          <span style="width:7px;height:7px;border-radius:50%;background:#3f9c58"></span>Extraction confidence: high
+        </div>
+      </div>
+      <div style="margin-top:20px;background:#fff;border:1px solid #e2e6ea;border-radius:8px;padding:24px 26px">
+        <div style="display:flex;gap:18px;align-items:center">
+          <div style="width:52px;height:52px;flex:none;border-radius:6px;background:#e2efee;color:#0f6e6a;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:600">AO</div>
+          <div style="flex:1">
+            <div style="font-size:19px;font-weight:600">Amara Okafor</div>
+            <div style="font-size:13px;color:#6b7481;margin-top:4px">Senior Data Analyst · Lagos, NG</div>
+          </div>
+          <button style="border:1px solid #d3d8de;background:#fff;color:#4c545e;font-family:inherit;font-size:12px;padding:7px 13px;border-radius:5px;cursor:pointer;display:flex;align-items:center;gap:7px" style-hover="background:#f5f6f8">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#4c545e" stroke-width="2" stroke-linecap="round"><path d="M4 20h4L20 8l-4-4L4 16v4z"/></svg>Edit all
+          </button>
+        </div>
+        <div style="height:1px;background:#eceef1;margin:22px 0"></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px 34px">
+          <div>
+            <div style="font-size:10px;font-weight:600;letter-spacing:.08em;color:#98a0aa">CURRENT TITLE</div>
+            <div style="font-size:14px;margin-top:7px">Senior Data Analyst</div>
+          </div>
+          <div>
+            <div style="font-size:10px;font-weight:600;letter-spacing:.08em;color:#98a0aa">TARGET TITLE <span style="color:#c07f2c;font-weight:500;letter-spacing:0">· editing</span></div>
+            <div style="margin-top:6px;display:flex;gap:8px">
+              <div style="flex:1;border:1.5px solid #0f6e6a;border-radius:5px;padding:6px 9px;font-size:13.5px;background:#fff;box-shadow:0 0 0 3px rgba(15,110,106,.12)">Analytics Engineer<span style="display:inline-block;width:1px;height:15px;background:#0f6e6a;vertical-align:-3px;margin-left:1px"></span></div>
+              <button style="border:1px solid #0f6e6a;background:#0f6e6a;color:#fff;font-family:inherit;font-size:12px;padding:0 13px;border-radius:5px;cursor:pointer">Save</button>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:10px;font-weight:600;letter-spacing:.08em;color:#98a0aa">YEARS OF EXPERIENCE</div>
+            <div style="font-size:14px;margin-top:7px">6 years <span style="color:#98a0aa;font-size:12px">(2019 – present)</span></div>
+          </div>
+          <div>
+            <div style="font-size:10px;font-weight:600;letter-spacing:.08em;color:#98a0aa">LOCATION</div>
+            <div style="font-size:14px;margin-top:7px">Lagos, Nigeria · open to remote</div>
+          </div>
+        </div>
+        <div style="height:1px;background:#eceef1;margin:22px 0"></div>
+        <div>
+          <div style="display:flex;align-items:baseline;gap:10px">
+            <div style="font-size:10px;font-weight:600;letter-spacing:.08em;color:#98a0aa">KEY SKILLS</div>
+            <div style="font-size:11.5px;color:#aab1ba">12 detected · click a chip to remove</div>
+          </div>
+          <div style="margin-top:12px;display:flex;flex-wrap:wrap;gap:8px">
+            <div style="background:#e2efee;color:#0b5b58;border:1px solid #cfe0df;border-radius:14px;padding:5px 12px;font-size:12.5px;display:flex;align-items:center;gap:7px">SQL<span style="color:#7fa8a6">✕</span></div>
+            <div style="background:#e2efee;color:#0b5b58;border:1px solid #cfe0df;border-radius:14px;padding:5px 12px;font-size:12.5px;display:flex;align-items:center;gap:7px">Python<span style="color:#7fa8a6">✕</span></div>
+            <div style="background:#e2efee;color:#0b5b58;border:1px solid #cfe0df;border-radius:14px;padding:5px 12px;font-size:12.5px;display:flex;align-items:center;gap:7px">dbt<span style="color:#7fa8a6">✕</span></div>
+            <div style="background:#e2efee;color:#0b5b58;border:1px solid #cfe0df;border-radius:14px;padding:5px 12px;font-size:12.5px;display:flex;align-items:center;gap:7px">Airflow<span style="color:#7fa8a6">✕</span></div>
+            <div style="background:#e2efee;color:#0b5b58;border:1px solid #cfe0df;border-radius:14px;padding:5px 12px;font-size:12.5px;display:flex;align-items:center;gap:7px">Snowflake<span style="color:#7fa8a6">✕</span></div>
+            <div style="background:#e2efee;color:#0b5b58;border:1px solid #cfe0df;border-radius:14px;padding:5px 12px;font-size:12.5px;display:flex;align-items:center;gap:7px">Power BI<span style="color:#7fa8a6">✕</span></div>
+            <div style="background:#e2efee;color:#0b5b58;border:1px solid #cfe0df;border-radius:14px;padding:5px 12px;font-size:12.5px;display:flex;align-items:center;gap:7px">Tableau<span style="color:#7fa8a6">✕</span></div>
+            <div style="background:#e2efee;color:#0b5b58;border:1px solid #cfe0df;border-radius:14px;padding:5px 12px;font-size:12.5px;display:flex;align-items:center;gap:7px">Pandas<span style="color:#7fa8a6">✕</span></div>
+            <div style="background:#fdf6ea;color:#8a6320;border:1px dashed #e3cfa4;border-radius:14px;padding:5px 12px;font-size:12.5px;display:flex;align-items:center;gap:7px">Stakeholder mgmt <span style="font-size:10.5px;color:#b08c4a">low confidence</span></div>
+            <div style="border:1px dashed #cfd5db;color:#8b939d;border-radius:14px;padding:5px 12px;font-size:12.5px">+ Add skill</div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:22px;display:flex;align-items:center;gap:14px">
+        <button style="border:1px solid #0f6e6a;background:#0f6e6a;color:#fff;font-family:inherit;font-size:14px;font-weight:600;padding:11px 26px;border-radius:5px;cursor:pointer;display:flex;align-items:center;gap:9px" style-hover="background:#0a5350;border-color:#0a5350">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>Search Jobs
+        </button>
+        <div style="font-size:12px;color:#8b939d">Will search 6 boards using 9 keywords from your profile.</div>
+      </div>
+    </div>
+  </div>
+  <div style="height:26px;flex:none;border-top:1px solid #e2e6ea;background:#f5f6f8;display:flex;align-items:center;padding:0 12px;font-size:10.5px;color:#8b939d;gap:16px"><span>Profile ready</span><span>·</span><span>Unsaved edit in “Target title”</span></div>
+</div></div>
+
+<div class="dv-opt" id="1d"><div class="dv-olabel"><a class="dv-oid" href="#1d">1d</a>Job search — filter sidebar + results</div>
+<div class="win">
+  <div style="height:36px;flex:none;background:#e9ebee;border-bottom:1px solid #d3d8de;display:flex;align-items:center;padding:0 12px;gap:10px">
+    <div style="width:14px;height:14px;border-radius:3px;background:#0f6e6a"></div>
+    <div style="font-size:11.5px;font-weight:600;letter-spacing:.02em">JobMatch AI</div>
+    <div style="flex:1"></div><div style="display:flex;gap:14px;color:#7a828c;font-size:11px"><span>—</span><span>▢</span><span>✕</span></div>
+  </div>
+  <div style="flex:none;height:52px;border-bottom:1px solid #e2e6ea;display:flex;align-items:center;gap:12px;padding:0 16px;background:#fff">
+    <div style="display:flex;align-items:center;gap:9px;flex:1;max-width:640px;border:1px solid #cfd5db;border-radius:5px;padding:8px 11px;background:#fff">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#8b939d" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
+      <div style="display:flex;gap:6px;align-items:center;flex-wrap:nowrap">
+        <span style="background:#e2efee;color:#0b5b58;border-radius:3px;padding:2px 7px;font-size:12px">analytics engineer</span>
+        <span style="background:#e2efee;color:#0b5b58;border-radius:3px;padding:2px 7px;font-size:12px">dbt</span>
+        <span style="background:#e2efee;color:#0b5b58;border-radius:3px;padding:2px 7px;font-size:12px">SQL</span>
+        <span style="font-size:13px;color:#aab1ba">add keyword…</span>
+      </div>
+    </div>
+    <button style="border:1px solid #0f6e6a;background:#0f6e6a;color:#fff;font-family:inherit;font-size:12.5px;font-weight:600;padding:8px 18px;border-radius:5px;cursor:pointer">Search</button>
+    <div style="flex:1"></div>
+    <div style="font-size:11.5px;color:#8b939d">Suggested from resume · <a href="#1c" style="text-decoration:none">edit profile</a></div>
+  </div>
+  <div style="flex:1;display:flex;min-height:0">
+    <div style="width:252px;flex:none;background:#f5f6f8;border-right:1px solid #e2e6ea;padding:16px 16px 0;overflow:hidden">
+      <div style="display:flex;justify-content:space-between;align-items:baseline">
+        <div style="font-size:12.5px;font-weight:600">Filters</div>
+        <div style="font-size:11px;color:#8b939d">Reset</div>
+      </div>
+      <div style="margin-top:16px;font-size:10px;font-weight:600;letter-spacing:.08em;color:#98a0aa">LOCATION</div>
+      <div style="margin-top:8px;border:1px solid #cfd5db;background:#fff;border-radius:4px;padding:7px 9px;font-size:12.5px">Lagos, Nigeria</div>
+      <div style="margin-top:10px;display:flex;align-items:center;justify-content:space-between">
+        <div style="font-size:12.5px;color:#4c545e">Remote only</div>
+        <div style="width:34px;height:19px;border-radius:10px;background:#0f6e6a;position:relative"><div style="position:absolute;top:2px;left:17px;width:15px;height:15px;border-radius:50%;background:#fff"></div></div>
+      </div>
+      <div style="height:1px;background:#e2e6ea;margin:16px 0"></div>
+      <div style="font-size:10px;font-weight:600;letter-spacing:.08em;color:#98a0aa">SALARY RANGE (ANNUAL)</div>
+      <div style="margin-top:12px;position:relative;height:4px;border-radius:2px;background:#dfe3e8">
+        <div style="position:absolute;left:22%;right:26%;top:0;bottom:0;background:#0f6e6a;border-radius:2px"></div>
+        <div style="position:absolute;left:22%;top:-5px;width:14px;height:14px;border-radius:50%;background:#fff;border:2px solid #0f6e6a;margin-left:-7px"></div>
+        <div style="position:absolute;left:74%;top:-5px;width:14px;height:14px;border-radius:50%;background:#fff;border:2px solid #0f6e6a;margin-left:-7px"></div>
+      </div>
+      <div style="margin-top:11px;display:flex;justify-content:space-between;font:500 11.5px 'IBM Plex Mono',monospace;color:#4c545e"><span>$45k</span><span>$130k</span></div>
+      <div style="height:1px;background:#e2e6ea;margin:16px 0"></div>
+      <div style="font-size:10px;font-weight:600;letter-spacing:.08em;color:#98a0aa">DATE POSTED</div>
+      <div style="margin-top:9px;display:flex;border:1px solid #cfd5db;border-radius:4px;overflow:hidden;background:#fff">
+        <div style="flex:1;text-align:center;font-size:11.5px;padding:6px 0;color:#4c545e">24h</div>
+        <div style="flex:1;text-align:center;font-size:11.5px;padding:6px 0;background:#0f6e6a;color:#fff;font-weight:600">7d</div>
+        <div style="flex:1;text-align:center;font-size:11.5px;padding:6px 0;color:#4c545e">30d</div>
+        <div style="flex:1;text-align:center;font-size:11.5px;padding:6px 0;color:#4c545e">Any</div>
+      </div>
+      <div style="height:1px;background:#e2e6ea;margin:16px 0"></div>
+      <div style="font-size:10px;font-weight:600;letter-spacing:.08em;color:#98a0aa">JOB TYPE</div>
+      <div style="margin-top:10px;display:flex;flex-direction:column;gap:9px">
+        <div style="display:flex;align-items:center;gap:9px;font-size:12.5px;color:#1b2027"><span style="width:14px;height:14px;border-radius:3px;background:#0f6e6a;display:flex;align-items:center;justify-content:center;color:#fff;font-size:9px">✓</span>Full-time</div>
+        <div style="display:flex;align-items:center;gap:9px;font-size:12.5px;color:#1b2027"><span style="width:14px;height:14px;border-radius:3px;background:#0f6e6a;display:flex;align-items:center;justify-content:center;color:#fff;font-size:9px">✓</span>Contract</div>
+        <div style="display:flex;align-items:center;gap:9px;font-size:12.5px;color:#6b7481"><span style="width:14px;height:14px;border-radius:3px;border:1px solid #cfd5db;background:#fff"></span>Internship</div>
+        <div style="display:flex;align-items:center;gap:9px;font-size:12.5px;color:#6b7481"><span style="width:14px;height:14px;border-radius:3px;border:1px solid #cfd5db;background:#fff"></span>Part-time</div>
+      </div>
+      <div style="height:1px;background:#e2e6ea;margin:16px 0"></div>
+      <div style="font-size:10px;font-weight:600;letter-spacing:.08em;color:#98a0aa">EXPERIENCE LEVEL</div>
+      <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:7px">
+        <div style="font-size:12px;border:1px solid #cfd5db;background:#fff;border-radius:13px;padding:4px 11px;color:#6b7481">Junior</div>
+        <div style="font-size:12px;border:1px solid #0f6e6a;background:#e2efee;color:#0b5b58;border-radius:13px;padding:4px 11px;font-weight:600">Mid</div>
+        <div style="font-size:12px;border:1px solid #0f6e6a;background:#e2efee;color:#0b5b58;border-radius:13px;padding:4px 11px;font-weight:600">Senior</div>
+        <div style="font-size:12px;border:1px solid #cfd5db;background:#fff;border-radius:13px;padding:4px 11px;color:#6b7481">Lead</div>
+      </div>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;min-width:0;background:#fbfbfc">
+      <div style="flex:none;height:42px;border-bottom:1px solid #e2e6ea;display:flex;align-items:center;padding:0 20px;gap:14px">
+        <div style="font-size:12.5px"><span style="font-weight:600">142 jobs</span> <span style="color:#8b939d">· 3 filters applied</span></div>
+        <div style="flex:1"></div>
+        <div style="font-size:12px;color:#6b7481">Sort by</div>
+        <div style="border:1px solid #cfd5db;background:#fff;border-radius:4px;padding:5px 10px;font-size:12px;display:flex;gap:16px;align-items:center">Match score <span style="color:#8b939d;font-size:9px">▼</span></div>
+      </div>
+      <div style="flex:1;overflow:hidden;padding:14px 20px;display:flex;flex-direction:column;gap:11px">
+        <div style="background:#fff;border:1px solid #cfe0df;border-left:3px solid #0f6e6a;border-radius:6px;padding:15px 17px;display:flex;gap:14px;align-items:flex-start;box-shadow:0 1px 2px rgba(20,28,38,.05)">
+          <div style="width:40px;height:40px;flex:none;border-radius:5px;background:#1b2027;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600">PS</div>
+          <div style="flex:1;min-width:0">
+            <div style="font-size:14.5px;font-weight:600">Analytics Engineer</div>
+            <div style="font-size:12.5px;color:#6b7481;margin-top:4px">Paystack · Lagos (Hybrid) · Full-time</div>
+            <div style="margin-top:9px;display:flex;gap:7px;flex-wrap:wrap">
+              <span style="font:500 11px 'IBM Plex Mono',monospace;background:#f2f4f6;border-radius:3px;padding:3px 7px;color:#4c545e">$78k – $96k</span>
+              <span style="font-size:11px;background:#e2efee;color:#0b5b58;border-radius:3px;padding:3px 7px">dbt</span>
+              <span style="font-size:11px;background:#e2efee;color:#0b5b58;border-radius:3px;padding:3px 7px">Snowflake</span>
+              <span style="font-size:11px;background:#f2f4f6;color:#6b7481;border-radius:3px;padding:3px 7px">+4</span>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:10px">
+            <div style="position:relative;width:46px;height:46px">
+              <svg width="46" height="46" viewBox="0 0 46 46"><circle cx="23" cy="23" r="19" fill="none" stroke="#e6eaee" stroke-width="4.5"/><circle cx="23" cy="23" r="19" fill="none" stroke="#0f6e6a" stroke-width="4.5" stroke-linecap="round" stroke-dasharray="119.4" stroke-dashoffset="15.5" transform="rotate(-90 23 23)"/></svg>
+              <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:600 12px 'IBM Plex Mono',monospace;color:#0b5b58">87%</div>
+            </div>
+            <div style="font-size:11px;color:#8b939d">2 days ago</div>
+          </div>
+        </div>
+        <div style="background:#fff;border:1px solid #e2e6ea;border-radius:6px;padding:15px 17px;display:flex;gap:14px;align-items:flex-start">
+          <div style="width:40px;height:40px;flex:none;border-radius:5px;background:#3a4b6d;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600">FL</div>
+          <div style="flex:1;min-width:0">
+            <div style="font-size:14.5px;font-weight:600">Senior Data Analyst, Growth</div>
+            <div style="font-size:12.5px;color:#6b7481;margin-top:4px">Flutterwave · Remote (Africa) · Full-time</div>
+            <div style="margin-top:9px;display:flex;gap:7px"><span style="font:500 11px 'IBM Plex Mono',monospace;background:#f2f4f6;border-radius:3px;padding:3px 7px;color:#4c545e">$70k – $88k</span><span style="font-size:11px;background:#e2efee;color:#0b5b58;border-radius:3px;padding:3px 7px">SQL</span><span style="font-size:11px;background:#e2efee;color:#0b5b58;border-radius:3px;padding:3px 7px">Python</span></div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:10px">
+            <div style="position:relative;width:46px;height:46px">
+              <svg width="46" height="46" viewBox="0 0 46 46"><circle cx="23" cy="23" r="19" fill="none" stroke="#e6eaee" stroke-width="4.5"/><circle cx="23" cy="23" r="19" fill="none" stroke="#0f6e6a" stroke-width="4.5" stroke-linecap="round" stroke-dasharray="119.4" stroke-dashoffset="26" transform="rotate(-90 23 23)"/></svg>
+              <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:600 12px 'IBM Plex Mono',monospace;color:#0b5b58">78%</div>
+            </div>
+            <div style="font-size:11px;color:#8b939d">4 days ago</div>
+          </div>
+        </div>
+        <div style="background:#fff;border:1px solid #e2e6ea;border-radius:6px;padding:15px 17px;display:flex;gap:14px;align-items:flex-start">
+          <div style="width:40px;height:40px;flex:none;border-radius:5px;background:#7a5230;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600">KB</div>
+          <div style="flex:1;min-width:0">
+            <div style="font-size:14.5px;font-weight:600">BI Developer (Contract)</div>
+            <div style="font-size:12.5px;color:#6b7481;margin-top:4px">Kobo360 · Lagos · Contract · 6 months</div>
+            <div style="margin-top:9px;display:flex;gap:7px"><span style="font:500 11px 'IBM Plex Mono',monospace;background:#f2f4f6;border-radius:3px;padding:3px 7px;color:#8b939d">Salary not listed</span><span style="font-size:11px;background:#e2efee;color:#0b5b58;border-radius:3px;padding:3px 7px">Power BI</span></div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:10px">
+            <div style="position:relative;width:46px;height:46px">
+              <svg width="46" height="46" viewBox="0 0 46 46"><circle cx="23" cy="23" r="19" fill="none" stroke="#e6eaee" stroke-width="4.5"/><circle cx="23" cy="23" r="19" fill="none" stroke="#c07f2c" stroke-width="4.5" stroke-linecap="round" stroke-dasharray="119.4" stroke-dashoffset="45.4" transform="rotate(-90 23 23)"/></svg>
+              <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:600 12px 'IBM Plex Mono',monospace;color:#8a6320">62%</div>
+            </div>
+            <div style="font-size:11px;color:#8b939d">1 week ago</div>
+          </div>
+        </div>
+        <div style="background:#fff;border:1px solid #e2e6ea;border-radius:6px;padding:15px 17px;display:flex;gap:14px;align-items:flex-start;opacity:.55">
+          <div style="width:40px;height:40px;flex:none;border-radius:5px;background:#5b6a5b;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600">AN</div>
+          <div style="flex:1"><div style="font-size:14.5px;font-weight:600">Data Analyst, Marketing</div><div style="font-size:12.5px;color:#6b7481;margin-top:4px">Andela · Remote · Full-time</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="height:26px;flex:none;border-top:1px solid #e2e6ea;background:#f5f6f8;display:flex;align-items:center;padding:0 12px;font-size:10.5px;color:#8b939d;gap:16px"><span>142 results · last refreshed 09:41</span><span>·</span><span>6 sources</span></div>
+</div></div>
+
+<div class="dv-opt" id="1e"><div class="dv-olabel"><a class="dv-oid" href="#1e">1e</a>Results list — card anatomy &amp; states</div>
+<div style="width:660px;background:#fbfbfc;border:1px solid #cfd4da;border-radius:7px;padding:20px;display:flex;flex-direction:column;gap:12px;box-shadow:0 8px 24px rgba(20,28,38,.1)">
+  <div style="font-size:10px;font-weight:600;letter-spacing:.08em;color:#98a0aa">DEFAULT</div>
+  <div style="background:#fff;border:1px solid #e2e6ea;border-radius:6px;padding:15px 17px;display:flex;gap:14px;align-items:flex-start">
+    <div style="width:40px;height:40px;flex:none;border-radius:5px;background:#1b2027;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600">PS</div>
+    <div style="flex:1"><div style="font-size:14.5px;font-weight:600">Analytics Engineer</div><div style="font-size:12.5px;color:#6b7481;margin-top:4px">Paystack · Lagos (Hybrid) · Full-time</div><div style="margin-top:9px"><span style="font:500 11px 'IBM Plex Mono',monospace;background:#f2f4f6;border-radius:3px;padding:3px 7px;color:#4c545e">$78k – $96k</span></div></div>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:10px">
+      <sc-if value="{{ showMatchScores }}" hint-placeholder-val="{{ true }}">
+      <div style="position:relative;width:46px;height:46px">
+        <svg width="46" height="46" viewBox="0 0 46 46"><circle cx="23" cy="23" r="19" fill="none" stroke="#e6eaee" stroke-width="4.5"/><circle cx="23" cy="23" r="19" fill="none" stroke="#0f6e6a" stroke-width="4.5" stroke-linecap="round" stroke-dasharray="119.4" stroke-dashoffset="15.5" transform="rotate(-90 23 23)"/></svg>
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:600 12px 'IBM Plex Mono',monospace;color:#0b5b58">87%</div>
+      </div>
+      </sc-if>
+      <div style="font-size:11px;color:#8b939d">2 days ago</div>
+    </div>
+  </div>
+  <div style="font-size:10px;font-weight:600;letter-spacing:.08em;color:#98a0aa;margin-top:6px">HOVER — reveals save + quick apply</div>
+  <div style="background:#fff;border:1px solid #b9cdcb;border-radius:6px;padding:15px 17px;display:flex;gap:14px;align-items:flex-start;box-shadow:0 3px 10px rgba(20,28,38,.09)">
+    <div style="width:40px;height:40px;flex:none;border-radius:5px;background:#3a4b6d;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600">FL</div>
+    <div style="flex:1">
+      <div style="font-size:14.5px;font-weight:600">Senior Data Analyst, Growth</div>
+      <div style="font-size:12.5px;color:#6b7481;margin-top:4px">Flutterwave · Remote (Africa) · Full-time</div>
+      <div style="margin-top:11px;display:flex;gap:8px">
+        <div style="border:1px solid #0f6e6a;color:#0f6e6a;border-radius:4px;padding:5px 12px;font-size:12px;font-weight:600">View details</div>
+        <div style="border:1px solid #d3d8de;color:#4c545e;border-radius:4px;padding:5px 12px;font-size:12px;display:flex;gap:6px;align-items:center"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#4c545e" stroke-width="2"><path d="M6 3h12v18l-6-5-6 5z"/></svg>Save</div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:10px">
+      <div style="position:relative;width:46px;height:46px">
+        <svg width="46" height="46" viewBox="0 0 46 46"><circle cx="23" cy="23" r="19" fill="none" stroke="#e6eaee" stroke-width="4.5"/><circle cx="23" cy="23" r="19" fill="none" stroke="#0f6e6a" stroke-width="4.5" stroke-linecap="round" stroke-dasharray="119.4" stroke-dashoffset="26" transform="rotate(-90 23 23)"/></svg>
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:600 12px 'IBM Plex Mono',monospace;color:#0b5b58">78%</div>
+      </div>
+      <div style="font-size:11px;color:#8b939d">4 days ago</div>
+    </div>
+  </div>
+  <div style="font-size:10px;font-weight:600;letter-spacing:.08em;color:#98a0aa;margin-top:6px">SELECTED &amp; SAVED · low score · viewed</div>
+  <div style="background:#f7fafa;border:1px solid #0f6e6a;border-left:3px solid #0f6e6a;border-radius:6px;padding:15px 17px;display:flex;gap:14px;align-items:flex-start">
+    <div style="width:40px;height:40px;flex:none;border-radius:5px;background:#7a5230;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600">KB</div>
+    <div style="flex:1"><div style="font-size:14.5px;font-weight:600;display:flex;align-items:center;gap:8px">BI Developer (Contract)<svg width="13" height="13" viewBox="0 0 24 24" fill="#0f6e6a"><path d="M6 3h12v18l-6-5-6 5z"/></svg></div><div style="font-size:12.5px;color:#6b7481;margin-top:4px">Kobo360 · Lagos · Contract · viewed yesterday</div></div>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:10px">
+      <div style="position:relative;width:46px;height:46px">
+        <svg width="46" height="46" viewBox="0 0 46 46"><circle cx="23" cy="23" r="19" fill="none" stroke="#e6eaee" stroke-width="4.5"/><circle cx="23" cy="23" r="19" fill="none" stroke="#c07f2c" stroke-width="4.5" stroke-linecap="round" stroke-dasharray="119.4" stroke-dashoffset="45.4" transform="rotate(-90 23 23)"/></svg>
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:600 12px 'IBM Plex Mono',monospace;color:#8a6320">62%</div>
+      </div>
+      <div style="font-size:11px;color:#8b939d">1 week ago</div>
+    </div>
+  </div>
+  <div style="font-size:10px;font-weight:600;letter-spacing:.08em;color:#98a0aa;margin-top:6px">LOADING MORE</div>
+  <div style="background:#fff;border:1px solid #e2e6ea;border-radius:6px;padding:15px 17px;display:flex;gap:14px;align-items:center">
+    <div style="width:40px;height:40px;border-radius:5px;background:#eff1f4"></div>
+    <div style="flex:1;display:flex;flex-direction:column;gap:8px"><div style="width:180px;height:11px;border-radius:3px;background:#eff1f4"></div><div style="width:260px;height:9px;border-radius:3px;background:#f4f6f8"></div></div>
+    <div style="width:46px;height:46px;border-radius:50%;background:#eff1f4"></div>
+  </div>
+</div></div>
+
+<div class="dv-opt" id="1f"><div class="dv-olabel"><a class="dv-oid" href="#1f">1f</a>Job detail — email application channel</div>
+<div class="win">
+  <div style="height:36px;flex:none;background:#e9ebee;border-bottom:1px solid #d3d8de;display:flex;align-items:center;padding:0 12px;gap:10px">
+    <div style="width:14px;height:14px;border-radius:3px;background:#0f6e6a"></div>
+    <div style="font-size:11.5px;font-weight:600;letter-spacing:.02em">JobMatch AI</div>
+    <div style="flex:1"></div><div style="display:flex;gap:14px;color:#7a828c;font-size:11px"><span>—</span><span>▢</span><span>✕</span></div>
+  </div>
+  <div style="flex:1;display:flex;min-height:0">
+    <div style="width:300px;flex:none;border-right:1px solid #e2e6ea;background:#f5f6f8;display:flex;flex-direction:column;min-height:0">
+      <div style="flex:none;padding:11px 14px;border-bottom:1px solid #e2e6ea;font-size:12px;color:#6b7481;display:flex;align-items:center;gap:8px">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#6b7481" stroke-width="2" stroke-linecap="round"><path d="M14 6l-6 6 6 6"/></svg>Back to 142 results
+      </div>
+      <div style="padding:8px;display:flex;flex-direction:column;gap:6px">
+        <div style="background:#fff;border:1px solid #0f6e6a;border-radius:5px;padding:11px 12px;display:flex;gap:11px">
+          <div style="width:30px;height:30px;flex:none;border-radius:4px;background:#3a4b6d;color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600">FL</div>
+          <div style="flex:1"><div style="font-size:12.5px;font-weight:600">Senior Data Analyst, Growth</div><div style="font-size:11px;color:#8b939d;margin-top:3px">Flutterwave · Remote</div></div>
+          <div style="font:600 11px 'IBM Plex Mono',monospace;color:#0b5b58">78%</div>
+        </div>
+        <div style="background:#fff;border:1px solid #e2e6ea;border-radius:5px;padding:11px 12px;display:flex;gap:11px">
+          <div style="width:30px;height:30px;flex:none;border-radius:4px;background:#1b2027;color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600">PS</div>
+          <div style="flex:1"><div style="font-size:12.5px;font-weight:600">Analytics Engineer</div><div style="font-size:11px;color:#8b939d;margin-top:3px">Paystack · Lagos</div></div>
+          <div style="font:600 11px 'IBM Plex Mono',monospace;color:#0b5b58">87%</div>
+        </div>
+        <div style="background:#fff;border:1px solid #e2e6ea;border-radius:5px;padding:11px 12px;display:flex;gap:11px">
+          <div style="width:30px;height:30px;flex:none;border-radius:4px;background:#7a5230;color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600">KB</div>
+          <div style="flex:1"><div style="font-size:12.5px;font-weight:600">BI Developer</div><div style="font-size:11px;color:#8b939d;margin-top:3px">Kobo360 · Lagos</div></div>
+          <div style="font:600 11px 'IBM Plex Mono',monospace;color:#8a6320">62%</div>
+        </div>
+      </div>
+    </div>
+    <div style="flex:1;min-width:0;display:flex;flex-direction:column;background:#fff">
+      <div style="flex:none;padding:22px 30px 18px;border-bottom:1px solid #e2e6ea">
+        <div style="display:flex;gap:16px;align-items:flex-start">
+          <div style="width:46px;height:46px;flex:none;border-radius:6px;background:#3a4b6d;color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:600">FL</div>
+          <div style="flex:1">
+            <div style="font-size:21px;font-weight:600;letter-spacing:-.01em">Senior Data Analyst, Growth</div>
+            <div style="font-size:13px;color:#6b7481;margin-top:5px">Flutterwave · Remote (Africa) · Full-time · Posted 4 days ago</div>
+          </div>
+          <button style="border:1px solid #d3d8de;background:#fff;font-family:inherit;font-size:12.5px;color:#4c545e;padding:8px 13px;border-radius:5px;cursor:pointer;display:flex;align-items:center;gap:7px" style-hover="background:#f5f6f8"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#4c545e" stroke-width="2"><path d="M6 3h12v18l-6-5-6 5z"/></svg>Save Job</button>
+        </div>
+        <div style="margin-top:16px;background:#f7fafa;border:1px solid #cfe0df;border-radius:6px;padding:14px 16px;display:flex;align-items:center;gap:16px">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#0f6e6a" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5L12 13l8.5-6.5"/></svg>
+          <div style="flex:1">
+            <div style="font-size:10px;font-weight:600;letter-spacing:.08em;color:#0b5b58">APPLY BY EMAIL</div>
+            <div style="font:500 13px 'IBM Plex Mono',monospace;color:#1b2027;margin-top:5px">careers@flutterwave.com</div>
+          </div>
+          <button style="border:1px solid #d3d8de;background:#fff;font-family:inherit;font-size:12px;color:#4c545e;padding:8px 12px;border-radius:5px;cursor:pointer" style-hover="background:#f5f6f8">Copy address</button>
+          <button style="border:1px solid #0f6e6a;background:#0f6e6a;color:#fff;font-family:inherit;font-size:13px;font-weight:600;padding:9px 18px;border-radius:5px;cursor:pointer;display:flex;align-items:center;gap:8px" style-hover="background:#0a5350;border-color:#0a5350"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5L12 13l8.5-6.5"/></svg>Send Email</button>
+        </div>
+      </div>
+      <div style="flex:1;min-height:0;display:flex">
+        <div style="flex:1;padding:22px 30px;overflow:hidden">
+          <div style="font-size:13.5px;font-weight:600">About the role</div>
+          <div style="font-size:13px;color:#4c545e;line-height:1.65;margin-top:8px;text-wrap:pretty">You'll sit with the Growth pod and own the metrics that decide where we spend: activation funnels, retention cohorts and channel payback. Expect to write a lot of SQL, ship dbt models, and present findings to the VP of Growth every two weeks.</div>
+          <div style="font-size:13.5px;font-weight:600;margin-top:22px">Requirements</div>
+          <div style="margin-top:10px;display:flex;flex-direction:column;gap:9px">
+            <div style="display:flex;gap:10px;font-size:12.5px;color:#4c545e"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0f6e6a" stroke-width="2.4" stroke-linecap="round" style="flex:none;margin-top:2px"><path d="M4 12.5l5 5L20 6.5"/></svg><span>5+ years in analytics, ideally in fintech or marketplaces</span></div>
+            <div style="display:flex;gap:10px;font-size:12.5px;color:#4c545e"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0f6e6a" stroke-width="2.4" stroke-linecap="round" style="flex:none;margin-top:2px"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Expert SQL; production experience with dbt</span></div>
+            <div style="display:flex;gap:10px;font-size:12.5px;color:#4c545e"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0f6e6a" stroke-width="2.4" stroke-linecap="round" style="flex:none;margin-top:2px"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Python for analysis and light pipeline work</span></div>
+            <div style="display:flex;gap:10px;font-size:12.5px;color:#8b939d"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c0503c" stroke-width="2.2" stroke-linecap="round" style="flex:none;margin-top:2px"><path d="M6 6l12 12M18 6L6 18"/></svg><span>Experience with experimentation platforms (not on your resume)</span></div>
+            <div style="display:flex;gap:10px;font-size:12.5px;color:#4c545e"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0f6e6a" stroke-width="2.4" stroke-linecap="round" style="flex:none;margin-top:2px"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Comfortable presenting to non-technical stakeholders</span></div>
+          </div>
+          <div style="font-size:13.5px;font-weight:600;margin-top:22px">Benefits</div>
+          <div style="font-size:12.5px;color:#4c545e;line-height:1.65;margin-top:7px">Remote-first across Africa · Private health cover · Annual learning budget · Equity after 12 months</div>
+        </div>
+        <div style="width:268px;flex:none;border-left:1px solid #e2e6ea;background:#fbfbfc;padding:22px 20px">
+          <div style="font-size:10px;font-weight:600;letter-spacing:.08em;color:#98a0aa">MATCH BREAKDOWN</div>
+          <div style="margin-top:14px;display:flex;align-items:center;gap:14px">
+            <div style="position:relative;width:60px;height:60px">
+              <svg width="60" height="60" viewBox="0 0 60 60"><circle cx="30" cy="30" r="25" fill="none" stroke="#e6eaee" stroke-width="6"/><circle cx="30" cy="30" r="25" fill="none" stroke="#0f6e6a" stroke-width="6" stroke-linecap="round" stroke-dasharray="157" stroke-dashoffset="34.5" transform="rotate(-90 30 30)"/></svg>
+              <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:600 14px 'IBM Plex Mono',monospace;color:#0b5b58">78%</div>
+            </div>
+            <div style="font-size:11.5px;color:#6b7481;line-height:1.5">Strong on skills,<br>light on tooling</div>
+          </div>
+          <div style="margin-top:18px;display:flex;flex-direction:column;gap:12px">
+            <div><div style="display:flex;justify-content:space-between;font-size:11.5px;color:#4c545e"><span>Skills</span><span style="font-family:'IBM Plex Mono',monospace">9/12</span></div><div style="height:4px;border-radius:2px;background:#eceef1;margin-top:5px"><div style="width:75%;height:100%;background:#0f6e6a;border-radius:2px"></div></div></div>
+            <div><div style="display:flex;justify-content:space-between;font-size:11.5px;color:#4c545e"><span>Seniority</span><span style="font-family:'IBM Plex Mono',monospace">Match</span></div><div style="height:4px;border-radius:2px;background:#eceef1;margin-top:5px"><div style="width:92%;height:100%;background:#0f6e6a;border-radius:2px"></div></div></div>
+            <div><div style="display:flex;justify-content:space-between;font-size:11.5px;color:#4c545e"><span>Location</span><span style="font-family:'IBM Plex Mono',monospace">Remote ok</span></div><div style="height:4px;border-radius:2px;background:#eceef1;margin-top:5px"><div style="width:100%;height:100%;background:#0f6e6a;border-radius:2px"></div></div></div>
+            <div><div style="display:flex;justify-content:space-between;font-size:11.5px;color:#4c545e"><span>Tooling</span><span style="font-family:'IBM Plex Mono',monospace">2/5</span></div><div style="height:4px;border-radius:2px;background:#eceef1;margin-top:5px"><div style="width:40%;height:100%;background:#c07f2c;border-radius:2px"></div></div></div>
+          </div>
+          <div style="height:1px;background:#e2e6ea;margin:20px 0"></div>
+          <div style="font-size:10px;font-weight:600;letter-spacing:.08em;color:#98a0aa">COMPANY</div>
+          <div style="font-size:12.5px;color:#4c545e;line-height:1.6;margin-top:10px">Flutterwave<br>Payments infrastructure · 900+ staff<br>Founded 2016 · Lagos &amp; SF</div>
+          <div style="margin-top:10px;font-size:12px"><a href="#1f" style="text-decoration:none">flutterwave.com ↗</a></div>
+          <div style="height:1px;background:#e2e6ea;margin:20px 0"></div>
+          <div style="font-size:10px;font-weight:600;letter-spacing:.08em;color:#98a0aa">SALARY</div>
+          <div style="font:600 15px 'IBM Plex Mono',monospace;margin-top:9px">$70k – $88k</div>
+          <div style="font-size:11.5px;color:#8b939d;margin-top:4px">Listed by employer · annual</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="height:26px;flex:none;border-top:1px solid #e2e6ea;background:#f5f6f8;display:flex;align-items:center;padding:0 12px;font-size:10.5px;color:#8b939d;gap:16px"><span>Job 2 of 142</span><span>·</span><span>Source: company careers page</span></div>
+</div></div>
+
+<div class="dv-opt" id="1g"><div class="dv-olabel"><a class="dv-oid" href="#1g">1g</a>Apply section — three channel types</div>
+<div style="width:660px;background:#fff;border:1px solid #cfd4da;border-radius:7px;padding:22px;display:flex;flex-direction:column;gap:16px;box-shadow:0 8px 24px rgba(20,28,38,.1)">
+  <div style="font-size:12.5px;color:#6b7481;line-height:1.5">The apply bar restyles itself from the link JobMatch found. One rule: the primary button always names the real action.</div>
+  <div>
+    <div style="font-size:10px;font-weight:600;letter-spacing:.08em;color:#98a0aa;margin-bottom:8px">TYPE A · EXTERNAL POSTING</div>
+    <div style="background:#f7fafa;border:1px solid #cfe0df;border-radius:6px;padding:14px 16px;display:flex;align-items:center;gap:14px">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#0f6e6a" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3.5 12h17M12 3.2a15 15 0 010 17.6M12 3.2a15 15 0 000 17.6"/></svg>
+      <div style="flex:1"><div style="font-size:10px;font-weight:600;letter-spacing:.08em;color:#0b5b58">APPLY ON COMPANY SITE</div><div style="font:500 12.5px 'IBM Plex Mono',monospace;color:#4c545e;margin-top:5px">paystack.com/careers/analytics-engineer</div></div>
+      <button style="border:1px solid #0f6e6a;background:#0f6e6a;color:#fff;font-family:inherit;font-size:13px;font-weight:600;padding:9px 17px;border-radius:5px;cursor:pointer;display:flex;align-items:center;gap:8px">Visit Website <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 01-1 1H5a1 1 0 01-1-1V7a1 1 0 011-1h5"/></svg></button>
+    </div>
+  </div>
+  <div>
+    <div style="font-size:10px;font-weight:600;letter-spacing:.08em;color:#98a0aa;margin-bottom:8px">TYPE B · EMAIL</div>
+    <div style="background:#f6f8fb;border:1px solid #d3dde8;border-radius:6px;padding:14px 16px;display:flex;align-items:center;gap:14px">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#3a5f8a" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5L12 13l8.5-6.5"/></svg>
+      <div style="flex:1"><div style="font-size:10px;font-weight:600;letter-spacing:.08em;color:#33587f">APPLY BY EMAIL</div><div style="font:500 12.5px 'IBM Plex Mono',monospace;color:#4c545e;margin-top:5px">careers@flutterwave.com</div></div>
+      <button style="border:1px solid #d3d8de;background:#fff;font-family:inherit;font-size:12px;color:#4c545e;padding:8px 12px;border-radius:5px;cursor:pointer">Copy</button>
+      <button style="border:1px solid #33587f;background:#33587f;color:#fff;font-family:inherit;font-size:13px;font-weight:600;padding:9px 17px;border-radius:5px;cursor:pointer;display:flex;align-items:center;gap:8px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5L12 13l8.5-6.5"/></svg>Send Email</button>
+    </div>
+  </div>
+  <div>
+    <div style="font-size:10px;font-weight:600;letter-spacing:.08em;color:#98a0aa;margin-bottom:8px">TYPE C · FORM LINK</div>
+    <div style="background:#f5f9f6;border:1px solid #cfe3d4;border-radius:6px;padding:14px 16px;display:flex;align-items:center;gap:14px">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#3f7a51" stroke-width="1.8" stroke-linecap="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 9h8M8 13h8M8 17h4"/></svg>
+      <div style="flex:1"><div style="font-size:10px;font-weight:600;letter-spacing:.08em;color:#31633f">APPLICATION FORM</div><div style="font:500 12.5px 'IBM Plex Mono',monospace;color:#4c545e;margin-top:5px">forms.gle/kobo360-bi-dev</div></div>
+      <button style="border:1px solid #3f7a51;background:#3f7a51;color:#fff;font-family:inherit;font-size:13px;font-weight:600;padding:9px 17px;border-radius:5px;cursor:pointer;display:flex;align-items:center;gap:8px">Open Application Form <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 01-1 1H5a1 1 0 01-1-1V7a1 1 0 011-1h5"/></svg></button>
+    </div>
+  </div>
+  <div>
+    <div style="font-size:10px;font-weight:600;letter-spacing:.08em;color:#98a0aa;margin-bottom:8px">TYPE D · NO CHANNEL FOUND</div>
+    <div style="background:#fafafa;border:1px dashed #d3d8de;border-radius:6px;padding:14px 16px;display:flex;align-items:center;gap:14px">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#98a0aa" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.2v.1"/></svg>
+      <div style="flex:1"><div style="font-size:10px;font-weight:600;letter-spacing:.08em;color:#8b939d">NO APPLY LINK DETECTED</div><div style="font-size:12.5px;color:#6b7481;margin-top:5px">Open the original listing to find how to apply.</div></div>
+      <button style="border:1px solid #d3d8de;background:#fff;font-family:inherit;font-size:13px;color:#4c545e;font-weight:600;padding:9px 17px;border-radius:5px;cursor:pointer">Open source listing</button>
+    </div>
+  </div>
+</div></div>
+
+<div class="dv-opt" id="1h"><div class="dv-olabel"><a class="dv-oid" href="#1h">1h</a>Saved jobs</div>
+<div class="win">
+  <div style="height:36px;flex:none;background:#e9ebee;border-bottom:1px solid #d3d8de;display:flex;align-items:center;padding:0 12px;gap:10px">
+    <div style="width:14px;height:14px;border-radius:3px;background:#0f6e6a"></div>
+    <div style="font-size:11.5px;font-weight:600;letter-spacing:.02em">JobMatch AI</div>
+    <div style="flex:1"></div><div style="display:flex;gap:14px;color:#7a828c;font-size:11px"><span>—</span><span>▢</span><span>✕</span></div>
+  </div>
+  <div style="flex:1;display:flex;min-height:0">
+    <div style="width:198px;flex:none;background:#f5f6f8;border-right:1px solid #e2e6ea;padding:14px 10px;display:flex;flex-direction:column;gap:3px">
+      <div style="font-size:9.5px;font-weight:600;letter-spacing:.1em;color:#98a0aa;padding:4px 10px 8px">WORKFLOW</div>
+      <div style="padding:8px 10px;border-radius:5px;font-size:12.5px;color:#4c545e;display:flex;gap:9px;align-items:center"><span style="width:16px;height:16px;border-radius:50%;background:#cfe0df;color:#0f6e6a;font-size:9px;display:flex;align-items:center;justify-content:center;font-weight:700">✓</span>Resume</div>
+      <div style="padding:8px 10px;border-radius:5px;font-size:12.5px;color:#4c545e;display:flex;gap:9px;align-items:center"><span style="width:16px;height:16px;border-radius:50%;background:#cfe0df;color:#0f6e6a;font-size:9px;display:flex;align-items:center;justify-content:center;font-weight:700">✓</span>Profile</div>
+      <div style="padding:8px 10px;border-radius:5px;font-size:12.5px;color:#4c545e;display:flex;gap:9px;align-items:center"><span style="width:16px;height:16px;border-radius:50%;background:#cfe0df;color:#0f6e6a;font-size:9px;display:flex;align-items:center;justify-content:center;font-weight:700">✓</span>Search</div>
+      <div style="padding:8px 10px;border-radius:5px;font-size:12.5px;font-weight:600;background:#e2efee;color:#0f6e6a;display:flex;gap:9px;align-items:center"><span style="width:16px;height:16px;border-radius:50%;background:#0f6e6a;color:#fff;font-size:9px;display:flex;align-items:center;justify-content:center;font-weight:700">4</span>Saved <span style="margin-left:auto;font:600 10.5px 'IBM Plex Mono',monospace">5</span></div>
+    </div>
+    <div style="flex:1;min-width:0;background:#fbfbfc;display:flex;flex-direction:column">
+      <div style="flex:none;padding:24px 30px 16px;display:flex;align-items:flex-end;justify-content:space-between;border-bottom:1px solid #e2e6ea">
+        <div><div style="font-size:21px;font-weight:600;letter-spacing:-.01em">Saved jobs</div><div style="font-size:12.5px;color:#6b7481;margin-top:5px">5 saved · 2 with deadlines this week</div></div>
+        <div style="display:flex;gap:9px">
+          <div style="border:1px solid #cfd5db;background:#fff;border-radius:4px;padding:6px 11px;font-size:12px;color:#4c545e;display:flex;gap:14px;align-items:center">Sort: date saved <span style="font-size:9px;color:#8b939d">▼</span></div>
+          <div style="border:1px solid #cfd5db;background:#fff;border-radius:4px;padding:6px 11px;font-size:12px;color:#4c545e">Export CSV</div>
+        </div>
+      </div>
+      <div style="flex:1;padding:14px 30px;display:flex;flex-direction:column;gap:0">
+        <div style="display:flex;align-items:center;gap:14px;padding:13px 4px;border-bottom:1px solid #eceef1">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#0f6e6a" style="flex:none"><path d="M6 3h12v18l-6-5-6 5z"/></svg>
+          <div style="width:34px;height:34px;flex:none;border-radius:5px;background:#3a4b6d;color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600">FL</div>
+          <div style="flex:1;min-width:0"><div style="font-size:13.5px;font-weight:600">Senior Data Analyst, Growth</div><div style="font-size:11.5px;color:#8b939d;margin-top:3px">Flutterwave · Remote · $70k – $88k</div></div>
+          <div style="font-size:11.5px;color:#c07f2c;background:#fdf6ea;border:1px solid #f0e0c4;border-radius:3px;padding:3px 8px">Closes in 3 days</div>
+          <div style="font:600 11.5px 'IBM Plex Mono',monospace;color:#0b5b58;width:36px;text-align:right">78%</div>
+          <div style="font-size:11.5px;color:#8b939d;width:80px;text-align:right">Saved today</div>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#aab1ba" stroke-width="2" style="flex:none"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+        </div>
+        <div style="display:flex;align-items:center;gap:14px;padding:13px 4px;border-bottom:1px solid #eceef1">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#0f6e6a" style="flex:none"><path d="M6 3h12v18l-6-5-6 5z"/></svg>
+          <div style="width:34px;height:34px;flex:none;border-radius:5px;background:#1b2027;color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600">PS</div>
+          <div style="flex:1;min-width:0"><div style="font-size:13.5px;font-weight:600">Analytics Engineer</div><div style="font-size:11.5px;color:#8b939d;margin-top:3px">Paystack · Lagos (Hybrid) · $78k – $96k</div></div>
+          <div style="font-size:11.5px;color:#3f7a51;background:#f0f6f1;border:1px solid #d5e6d9;border-radius:3px;padding:3px 8px">Applied 12 Aug</div>
+          <div style="font:600 11.5px 'IBM Plex Mono',monospace;color:#0b5b58;width:36px;text-align:right">87%</div>
+          <div style="font-size:11.5px;color:#8b939d;width:80px;text-align:right">2 days ago</div>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#aab1ba" stroke-width="2" style="flex:none"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+        </div>
+        <div style="display:flex;align-items:center;gap:14px;padding:13px 4px;border-bottom:1px solid #eceef1">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#0f6e6a" style="flex:none"><path d="M6 3h12v18l-6-5-6 5z"/></svg>
+          <div style="width:34px;height:34px;flex:none;border-radius:5px;background:#7a5230;color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600">KB</div>
+          <div style="flex:1;min-width:0"><div style="font-size:13.5px;font-weight:600">BI Developer (Contract)</div><div style="font-size:11.5px;color:#8b939d;margin-top:3px">Kobo360 · Lagos · Salary not listed</div></div>
+          <div style="font-size:11.5px;color:#8b939d">Form application</div>
+          <div style="font:600 11.5px 'IBM Plex Mono',monospace;color:#8a6320;width:36px;text-align:right">62%</div>
+          <div style="font-size:11.5px;color:#8b939d;width:80px;text-align:right">3 days ago</div>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#aab1ba" stroke-width="2" style="flex:none"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+        </div>
+        <div style="display:flex;align-items:center;gap:14px;padding:13px 4px;border-bottom:1px solid #eceef1">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#0f6e6a" style="flex:none"><path d="M6 3h12v18l-6-5-6 5z"/></svg>
+          <div style="width:34px;height:34px;flex:none;border-radius:5px;background:#5b6a5b;color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600">AN</div>
+          <div style="flex:1;min-width:0"><div style="font-size:13.5px;font-weight:600">Data Analyst, Marketing</div><div style="font-size:11.5px;color:#8b939d;margin-top:3px">Andela · Remote · $60k – $75k</div></div>
+          <div style="font-size:11.5px;color:#8b939d">Email application</div>
+          <div style="font:600 11.5px 'IBM Plex Mono',monospace;color:#0b5b58;width:36px;text-align:right">71%</div>
+          <div style="font-size:11.5px;color:#8b939d;width:80px;text-align:right">1 week ago</div>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#aab1ba" stroke-width="2" style="flex:none"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+        </div>
+        <div style="display:flex;align-items:center;gap:14px;padding:13px 4px;border-bottom:1px solid #eceef1;opacity:.6">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#0f6e6a" style="flex:none"><path d="M6 3h12v18l-6-5-6 5z"/></svg>
+          <div style="width:34px;height:34px;flex:none;border-radius:5px;background:#6b4b6b;color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600">MO</div>
+          <div style="flex:1;min-width:0"><div style="font-size:13.5px;font-weight:600;text-decoration:line-through">Product Analyst</div><div style="font-size:11.5px;color:#8b939d;margin-top:3px">Moniepoint · Lagos · listing expired</div></div>
+          <div style="font-size:11.5px;color:#c0503c;background:#fdf1ef;border:1px solid #f3d3cd;border-radius:3px;padding:3px 8px">Expired</div>
+          <div style="font:600 11.5px 'IBM Plex Mono',monospace;color:#8b939d;width:36px;text-align:right">69%</div>
+          <div style="font-size:11.5px;color:#8b939d;width:80px;text-align:right">3 weeks ago</div>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#aab1ba" stroke-width="2" style="flex:none"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+        </div>
+        <div style="margin-top:18px;font-size:12px;color:#98a0aa;text-align:center">Saved jobs are re-checked each time you open the app.</div>
+      </div>
+    </div>
+  </div>
+  <div style="height:26px;flex:none;border-top:1px solid #e2e6ea;background:#f5f6f8;display:flex;align-items:center;padding:0 12px;font-size:10.5px;color:#8b939d;gap:16px"><span>5 saved</span><span>·</span><span>1 expired listing</span></div>
+</div></div>
+
+</div>
+<p class="dv-next">Try next: "make the profile screen fully editable inline" · "add a dark theme pass" · "show the search screen with zero results and an error state"</p>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showMatchScores&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Results list&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return { showMatchScores: this.props.showMatchScores ?? true };
+  }
+}
+</script>
+</body>
+</html>

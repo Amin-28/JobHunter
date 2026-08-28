@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JobMatch AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <!-- sidebar -->
+  <aside id="sidebar">
+    <div class="brand"><span class="mark"></span><b>JobMatch AI</b></div>
+    <div class="nav-h">WORKFLOW</div>
+    <button class="nav-row" data-nav="upload" data-i="0">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M14 3v5h5"/><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/></svg>
+      Resume <span class="check">✓</span>
+    </button>
+    <button class="nav-row disabled" data-nav="profile" data-i="1">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-3.5 3.6-6 8-6s8 2.5 8 6"/></svg>
+      Profile <span class="check">✓</span>
+    </button>
+    <button class="nav-row disabled" data-nav="search" data-i="2">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      Search
+    </button>
+    <button class="nav-row disabled" data-nav="saved" data-i="3">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+      Saved <span class="badge" id="saved-badge">0</span>
+    </button>
+    <div class="spacer"></div>
+    <div class="offline">🔒 Runs in your browser</div>
+  </aside>
+
+  <!-- main -->
+  <main id="main">
+    <div id="header-bar">
+      <button class="icon-btn" id="theme-btn" title="Toggle theme">
+        <svg viewBox="0 0 24 24" id="theme-icon"></svg>
+      </button>
+    </div>
+    <div id="content">
+      <!-- UPLOAD -->
+      <section class="view active" id="upload-view">
+        <div class="center-col">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#C3CAD2" stroke-width="1.6" style="width:72px;height:72px"><path d="M14 3v5h5"/><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/></svg>
+          <h1 class="hero-h">Find jobs that fit your resume</h1>
+          <p class="hero-sub">Drop in your resume and JobMatch reads your skills, titles and experience to score every job it finds — from anywhere.</p>
+          <div class="drop" id="drop">
+            <div id="drop-idle">
+              <svg viewBox="0 0 24 24" stroke-width="1.7"><path d="M12 15V3M12 3l-4 4M12 3l4 4"/><path d="M4 15v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg>
+              <div style="color:var(--text-2);font-size:14px">Drag &amp; drop your resume here</div>
+              <div class="or">— or —</div>
+              <button class="btn" id="browse">Browse Files…</button>
+              <div class="hint">PDF or DOCX · up to 10 MB</div>
+            </div>
+            <div id="drop-busy" style="display:none">
+              <div style="font-size:15px;font-weight:600" id="busy-title">Reading your resume…</div>
+              <div class="progress"><div id="prog"></div></div>
+              <div style="color:var(--text-3);font-size:12.5px" id="busy-step">Extracting text…</div>
+            </div>
+          </div>
+          <input type="file" id="file" accept=".pdf,.docx" hidden>
+          <p id="drop-err" style="color:var(--danger);font-size:12.5px;margin-top:12px;display:none"></p>
+        </div>
+      </section>
+
+      <!-- PROFILE -->
+      <section class="view" id="profile-view"><div style="padding:30px 40px" id="profile-body"></div></section>
+
+      <!-- SEARCH -->
+      <section class="view" id="search-view">
+        <div class="toolbar">
+          <div class="tokenfield" id="tokenfield">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--text-4)" stroke-width="2" style="width:15px;height:15px"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+            <input type="text" id="kw-input" placeholder="add keyword…">
+          </div>
+          <button class="btn ghost" id="ai-btn">✨ AI research</button>
+          <button class="btn" id="search-btn">Search</button>
+        </div>
+        <div class="search-body">
+          <div class="filters" id="filters"></div>
+          <div class="results">
+            <div class="results-head">
+              <span id="count">—</span>
+              <span>Sort <select id="sort" style="width:auto;display:inline-block">
+                <option>Match score</option><option>Date posted</option><option>Salary</option></select></span>
+            </div>
+            <div class="results-list" id="results-list"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DETAIL -->
+      <section class="view" id="detail-view"></section>
+
+      <!-- SAVED -->
+      <section class="view" id="saved-view"><div style="padding:24px 30px" id="saved-body"></div></section>
+    </div>
+    <div id="statusbar">Ready · No resume loaded</div>
+  </main>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

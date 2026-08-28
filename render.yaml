@@ -1,0 +1,23 @@
+# One-click-ish deploy to Render (render.com) — free tier.
+# Set your API keys as environment variables in the Render dashboard
+# (GROQ_API_KEY, GEMINI_API_KEY, JOOBLE_KEY, ADZUNA_APP_ID, ADZUNA_APP_KEY).
+services:
+  - type: web
+    name: jobmatch-ai
+    runtime: python
+    plan: free
+    buildCommand: pip install -r web/backend/requirements.txt
+    startCommand: uvicorn web.backend.app:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12"
+      - key: GROQ_API_KEY
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: JOOBLE_KEY
+        sync: false
+      - key: ADZUNA_APP_ID
+        sync: false
+      - key: ADZUNA_APP_KEY
+        sync: false
