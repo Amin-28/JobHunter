@@ -50,14 +50,23 @@ def get(key: str, default=None):
 
 
 def set(key: str, value) -> None:  # noqa: A001 - deliberate simple API
-    global _mtime
-    data = _load()
-    data[key] = value
+    """Merge one key onto the CURRENT on-disk settings and save.
+
+    Always re-reads the file first (never trusts a possibly-stale cache), so a
+    process that loaded an empty file can't clobber keys another process wrote.
+    """
+    global _cache, _mtime
     try:
-        _SETTINGS_FILE.write_text(json.dumps(data, indent=2), "utf-8")
+        disk = json.loads(_SETTINGS_FILE.read_text("utf-8"))
+    except (OSError, ValueError):
+        disk = {}
+    disk[key] = value
+    try:
+        _SETTINGS_FILE.write_text(json.dumps(disk, indent=2), "utf-8")
         _mtime = _SETTINGS_FILE.stat().st_mtime
     except OSError:
         pass
+    _cache = disk
 
 
 # ---- secrets (env var wins over settings file) ----

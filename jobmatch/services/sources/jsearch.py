@@ -11,6 +11,7 @@ set via env ``RAPIDAPI_KEY`` or the in-app Settings. Without a key it's skipped.
 """
 from __future__ import annotations
 
+import urllib.error
 import urllib.parse
 import urllib.request
 import json
@@ -64,8 +65,12 @@ def fetch(keywords: list[str], location: str, limit: int) -> list[RawJob]:
     url = f"https://{HOST}/search?{urllib.parse.urlencode(params)}"
     req = urllib.request.Request(url, headers={
         "X-RapidAPI-Key": key, "X-RapidAPI-Host": HOST, "User-Agent": UA})
-    with urllib.request.urlopen(req, timeout=15) as resp:
-        data = json.loads(resp.read().decode("utf-8", "replace"))
+    try:
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            data = json.loads(resp.read().decode("utf-8", "replace"))
+    except urllib.error.HTTPError as e:
+        body = e.read().decode("utf-8", "replace")[:220]
+        raise RuntimeError(f"JSearch HTTP {e.code} — {body}") from e
 
     out: list[RawJob] = []
     for r in (data.get("data") or [])[:limit]:
