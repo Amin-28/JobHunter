@@ -25,15 +25,23 @@ def data_dir() -> Path:
 
 _SETTINGS_FILE = data_dir() / "settings.json"
 _cache: dict | None = None
+_mtime: float = -1.0
 
 
 def _load() -> dict:
-    global _cache
-    if _cache is None:
+    """Return settings, reloading if the file changed on disk (so a manual edit
+    or another process's save is picked up without a restart)."""
+    global _cache, _mtime
+    try:
+        m = _SETTINGS_FILE.stat().st_mtime
+    except OSError:
+        m = 0.0
+    if _cache is None or m != _mtime:
         try:
             _cache = json.loads(_SETTINGS_FILE.read_text("utf-8"))
         except (OSError, ValueError):
             _cache = {}
+        _mtime = m
     return _cache
 
 
@@ -42,10 +50,12 @@ def get(key: str, default=None):
 
 
 def set(key: str, value) -> None:  # noqa: A001 - deliberate simple API
+    global _mtime
     data = _load()
     data[key] = value
     try:
         _SETTINGS_FILE.write_text(json.dumps(data, indent=2), "utf-8")
+        _mtime = _SETTINGS_FILE.stat().st_mtime
     except OSError:
         pass
 
