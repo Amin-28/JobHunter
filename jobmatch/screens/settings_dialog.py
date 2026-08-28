@@ -21,6 +21,7 @@ _SECTIONS = [
     ]),
     ("Jobs", [
         ("jooble_key", "Jooble key", "jooble.org/api/about — real Pakistan jobs, free"),
+        ("rapidapi_key", "RapidAPI key (JSearch)", "rapidapi.com/…/jsearch — LinkedIn/Indeed jobs via Google, free tier"),
     ]),
     ("Advanced  ·  optional", [
         ("anthropic_api_key", "Anthropic (Claude) key", "console.anthropic.com — paid"),

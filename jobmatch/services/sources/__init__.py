@@ -11,7 +11,8 @@ import concurrent.futures as _cf
 
 from .base import RawJob, SOURCES, source_names
 # import adapters so they register in SOURCES regardless of entry point
-from . import remotive, arbeitnow, jobicy, remoteok, adzuna, jooble  # noqa: E402,F401
+from . import (remotive, arbeitnow, jobicy, remoteok, adzuna, jooble,  # noqa: E402,F401
+               jsearch)
 
 
 def aggregate(keywords: list[str], location: str, limit_per_source: int = 25,

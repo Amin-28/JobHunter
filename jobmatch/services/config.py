@@ -83,6 +83,10 @@ def jooble_key() -> str | None:
     return secret("JOOBLE_KEY", "jooble_key")
 
 
+def rapidapi_key() -> str | None:
+    return secret("RAPIDAPI_KEY", "rapidapi_key")
+
+
 # ---- which sources are enabled ----
 _FREE = ["Remotive", "Arbeitnow", "Jobicy", "RemoteOK"]
 
@@ -94,6 +98,8 @@ def enabled_sources() -> list[str]:
         names = names + ["Adzuna"]
     if jooble_key() and "Jooble" not in names:
         names = names + ["Jooble"]     # covers Pakistan + most countries
+    if rapidapi_key() and "JSearch" not in names:
+        names = names + ["JSearch"]    # Google-for-Jobs (LinkedIn/Indeed/Glassdoor)
     return names
 
 

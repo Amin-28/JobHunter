@@ -112,6 +112,7 @@ Set as environment variables, or in the settings file at
 | `OPENROUTER_API_KEY` | Same, via OpenRouter free models. Key at openrouter.ai |
 | `ANTHROPIC_API_KEY` | Same, via Claude — **paid** (pay-as-you-go) |
 | `JOOBLE_KEY` | **Jooble source — real Pakistan (and ~70-country) local listings.** Free at jooble.org/api/about |
+| `RAPIDAPI_KEY` | **JSearch — LinkedIn / Indeed / Glassdoor jobs via Google for Jobs** (ToS-compliant, real location search). Free tier at rapidapi.com |
 | `ADZUNA_APP_ID` + `ADZUNA_APP_KEY` | Adzuna source (Indeed-style listings, no PK) — free at developer.adzuna.com |
 
 The AI layer picks the first provider it finds a key for, in the order above

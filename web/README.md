@@ -32,6 +32,7 @@ Set them as environment variables before starting (or in the same
 | `GROQ_API_KEY` | free AI: résumé parsing, keyword research, explanations |
 | `GEMINI_API_KEY` | free AI + semantic matching (embeddings) |
 | `JOOBLE_KEY` | real Pakistan / local jobs |
+| `RAPIDAPI_KEY` | JSearch — LinkedIn/Indeed/Glassdoor jobs via Google for Jobs (free tier) |
 | `ADZUNA_APP_ID`, `ADZUNA_APP_KEY` | Adzuna listings |
 
 PowerShell example:
